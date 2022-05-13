@@ -3,8 +3,14 @@
 function server () {
   while true
   do
-    read -r message
-    echo "You said: $message"
+    read -r method path version
+    if [[ $method = "GET" ]]
+    then
+      echo "HTTP/1.1 200 OK"
+    else
+      echo "HTTP/1.1 400 Bad Request"
+    fi
+    # echo "You said: $message"
   done
 }
 
